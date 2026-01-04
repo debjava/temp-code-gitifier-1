@@ -3,13 +3,17 @@
  */
 package com.ddlab.gitpusher.gitlab.core;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * The Class GitLabRepo.
  * 
  * @author Debadatta Mishra
  */
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GitLabRepo {
 
 	/** The id. */
@@ -25,79 +29,80 @@ public class GitLabRepo {
 	private String userName;
 
 	/** The repo git. */
-	@JsonProperty("http_url_to_repo")
+//	@JsonProperty("http_url_to_repo")
+	@JsonProperty("web_url")
 	private String repoGit;
 
-	/**
-	 * Gets the id.
-	 *
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Sets the id.
-	 *
-	 * @param id the new id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Sets the name.
-	 *
-	 * @param name the new name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Gets the repo git.
-	 *
-	 * @return the repo git
-	 */
-	public String getRepoGit() {
-		return repoGit;
-	}
-
-	/**
-	 * Sets the repo git.
-	 *
-	 * @param repoGit the new repo git
-	 */
-	public void setRepoGit(String repoGit) {
-		this.repoGit = repoGit;
-	}
-
-	/**
-	 * Gets the user name.
-	 *
-	 * @return the user name
-	 */
-	public String getUserName() {
-		return userName;
-	}
-
-	/**
-	 * Sets the user name.
-	 *
-	 * @param userName the new user name
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+//	/**
+//	 * Gets the id.
+//	 *
+//	 * @return the id
+//	 */
+//	public Long getId() {
+//		return id;
+//	}
+//
+//	/**
+//	 * Sets the id.
+//	 *
+//	 * @param id the new id
+//	 */
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
+//
+//	/**
+//	 * Gets the name.
+//	 *
+//	 * @return the name
+//	 */
+//	public String getName() {
+//		return name;
+//	}
+//
+//	/**
+//	 * Sets the name.
+//	 *
+//	 * @param name the new name
+//	 */
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	/**
+//	 * Gets the repo git.
+//	 *
+//	 * @return the repo git
+//	 */
+//	public String getRepoGit() {
+//		return repoGit;
+//	}
+//
+//	/**
+//	 * Sets the repo git.
+//	 *
+//	 * @param repoGit the new repo git
+//	 */
+//	public void setRepoGit(String repoGit) {
+//		this.repoGit = repoGit;
+//	}
+//
+//	/**
+//	 * Gets the user name.
+//	 *
+//	 * @return the user name
+//	 */
+//	public String getUserName() {
+//		return userName;
+//	}
+//
+//	/**
+//	 * Sets the user name.
+//	 *
+//	 * @param userName the new user name
+//	 */
+//	public void setUserName(String userName) {
+//		this.userName = userName;
+//	}
 
 }

@@ -86,7 +86,9 @@ public class CommonConstants {
 
 	/** The Constant GITLAB_USER_SEARCH_API. */
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~ GITLAB API DETAILS ~~~~~~~~~~~~~~~~~~~~~~
-	public static final String GITLAB_USER_SEARCH_API = "https://gitlab.com/api/v4/users?search={0}&private_token={1}";
+//	public static final String GITLAB_USER_SEARCH_API = "https://gitlab.com/api/v4/users?search={0}&private_token={1}";
+
+	public static final String GITLAB_USER_SEARCH_API = "https://gitlab.com/api/v4/user?public_email={0}&private_token={1}";
 
 	/** The Constant GITLAB_GET_REPOS_API. */
 	public static final String GITLAB_GET_REPOS_API = "https://gitlab.com/api/v4/projects?"

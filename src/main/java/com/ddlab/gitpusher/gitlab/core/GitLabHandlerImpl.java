@@ -130,11 +130,11 @@ public class GitLabHandlerImpl implements IGitHandler {
 	public String[] getAllRepositories() throws Exception {
 		GitLabRepo[] gitRepos = null;
 		String token = userAccount.getPassword();
-		log.debug("Gitlab Token: " + token);
-//		String userName = getUserName();
-//		log.debug("Gitlab User Name: " + userName);
-		String userName = userAccount.getUserName();
+//		log.debug("Gitlab Token: " + token);
+		String userName = getUserName();
 		log.debug("Gitlab User Name: " + userName);
+//		String userName = userAccount.getUserName();
+//		log.debug("Gitlab User Name: " + userName);
 		MessageFormat formatter = new MessageFormat(GITLAB_GET_REPOS_API);
 		String uri = formatter.format(new String[] { token, userName });
 		log.debug("What is the Gitlab URI: {}", uri);

@@ -12,8 +12,8 @@ import java.text.MessageFormat;
 import com.ddlab.gitpusher.core.IErrorResponseParser;
 import com.ddlab.gitpusher.core.IResponseParser;
 import com.ddlab.gitpusher.exception.GenericGitPushException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
+
 
 /**
  * The Class GitLabResponseParserImpl.
@@ -38,7 +38,7 @@ public class GitLabResponseParserImpl implements IResponseParser<String, GitLabR
 	public GitLabRepo getAllRepos(String jsonResponse) throws GenericGitPushException {
 		GitLabRepo gitRepo = new GitLabRepo();
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+//		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		return gitRepo;
 	}
 
@@ -56,17 +56,16 @@ public class GitLabResponseParserImpl implements IResponseParser<String, GitLabR
 	 */
 	@Override
 	public GitLabRepo getUser(String jsonResponse) throws GenericGitPushException {
-		GitLabRepo[] gitRepo = new GitLabRepo[] {};
+		GitLabRepo gitRepo = new GitLabRepo();
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		try {
-			gitRepo = mapper.readValue(jsonResponse, GitLabRepo[].class);
-		} catch (IOException e) {
+			gitRepo = mapper.readValue(jsonResponse, GitLabRepo.class);
+		} catch (Exception e) {
 			e.printStackTrace();
 			String errMsg = new MessageFormat(PARSE_ERR_1).format(new String[] { GITLAB });
 			throw new GenericGitPushException(errMsg);
 		}
-		return gitRepo[0];
+		return gitRepo;
 	}
 
 	/**
